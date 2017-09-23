@@ -18,6 +18,19 @@ class ArticlesController < ApplicationController
   @article.user = current_user
     if @article.save
       flash[:success] = "Article was successfully created"
+
+      params1 = {"app_id" => "7472064f-567e-41b3-8ed6-7d5290c370d4",
+          "contents" => {"en" => "English Message"},
+          "included_segments" => ["All"]}
+      uri = URI.parse('https://onesignal.com/api/v1/notifications')
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      request = Net::HTTP::Post.new(uri.path,
+                                    'Content-Type'  => 'application/json;charset=utf-8',
+                                    'Authorization' => "Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj")
+      request.body = params1.as_json.to_json
+      response = http.request(request)
+
       redirect_to article_path(@article)
     else
       render 'new'
