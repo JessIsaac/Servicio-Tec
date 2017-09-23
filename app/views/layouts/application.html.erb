@@ -5,6 +5,18 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+     <script>
+       var OneSignal = window.OneSignal || [];
+       OneSignal.push(["init", {
+         appId: "7472064f-567e-41b3-8ed6-7d5290c370d4",
+         autoRegister: false,
+         notifyButton: {
+           enable: true /* Set to false to hide */
+         }
+       }]);
+     </script>
   </head>
 
   <body>
