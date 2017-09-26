@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
                                     'Authorization' => "Basic MTIzOGY1MWItZDFlNC00NDc3LThmYTYtYjE4NWUzYjFhYWE0")
       request.body = params1.as_json.to_json
       response = http.request(request)
+      
 
       redirect_to article_path(@article)
     else
