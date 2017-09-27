@@ -21,8 +21,11 @@ class ArticlesController < ApplicationController
 
       params1 = {"app_id" => "7472064f-567e-41b3-8ed6-7d5290c370d4",
           "contents" => {"en" => @article.title},
-          "included_segments" => ["All"]
+          "headings" => {"en" => "Gobierno del estado BC"},
+          "included_segments" => ["All"],
+          "url"=>" #{request.base_url+article_path(@article)}"
         }
+
       uri = URI.parse('https://onesignal.com/api/v1/notifications')
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
@@ -31,8 +34,6 @@ class ArticlesController < ApplicationController
                                     'Authorization' => "Basic MTIzOGY1MWItZDFlNC00NDc3LThmYTYtYjE4NWUzYjFhYWE0")
       request.body = params1.as_json.to_json
       response = http.request(request)
-      
-
       redirect_to article_path(@article)
     else
       render 'new'
