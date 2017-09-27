@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 
       params1 = {"app_id" => "7472064f-567e-41b3-8ed6-7d5290c370d4",
           "contents" => {"en" => @article.title},
-          "headings" => {"en" => "Gobierno del estado BC"},
+          "headings" => {"en" => "SEDESOE"},
           "included_segments" => ["All"],
           "url"=>" #{request.base_url+article_path(@article)}"
         }
