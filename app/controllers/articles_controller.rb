@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :require_user,except:[:index,:show]
   before_action :require_same_user,only:[:edit,:update,:destroy]
   def index
-    @articles = Article.paginate(page: params[:page],per_page: 5)
+    @articles = Article.paginate(page: params[:page],per_page: 5).order('id DESC')
   end
 
   def new
@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   def create
   @article = Article.new(article_params)
   @article.user = current_user
+  @article.imagen = "/default.png"
     if @article.save
       flash[:success] = "Article was successfully created"
 
