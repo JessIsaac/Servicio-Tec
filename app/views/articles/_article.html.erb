@@ -5,7 +5,10 @@
       <div class='article-title'>
         <%= link_to article.title, article_path(article) %>
         <div class='article-body'>
-          <%= truncate(article.description,length:300) %>
+          <div class='well well-lg'>
+              <%= image_tag(article.imagen,class: "img-responsive") %>
+          </div>
+            <%= truncate(article.description,length:300) %>
         </div>
         <div class='aricles-meta-details'>
           <small> Created by: <%= article.user.username if article.user %>,
