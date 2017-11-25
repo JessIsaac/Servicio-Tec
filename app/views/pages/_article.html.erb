@@ -6,7 +6,7 @@
         <%= link_to article.title, article_path(article) %>
         <div class='article-body'>
           <div class='well well-lg'>
-              <%= link_to( image_tag(article.imagen,class: "img-responsive"),article_path(article)) %>
+              <%= image_tag(article.imagen,class: "img-responsive") %>
           </div>
             <%= truncate(article.description,length:300) %>
         </div>
