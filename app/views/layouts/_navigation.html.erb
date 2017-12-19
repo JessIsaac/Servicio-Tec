@@ -1,9 +1,9 @@
 <hr class ="p-color" style="height: 4px; margin:0">
 <div align="center" style="margin:10px">
   <% if current_page?(root_path) %>
-    <%= image_tag("logo.jpeg") %>
+    <%= image_tag("/logo.jpeg") %>
   <% else %>
-    <%= link_to(image_tag("logo.jpeg"),root_path) %>
+    <%= link_to(image_tag("/logo.jpeg"),root_path) %>
   <% end %>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +24,7 @@
       <form class="form-inline ">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             <button class="btn my-2 my-sm-0" type="submit">Buscar</button>
-      </form>      
+      </form>
     </div>
   </div>
 </nav>
