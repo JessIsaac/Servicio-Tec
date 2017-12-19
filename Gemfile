@@ -10,7 +10,10 @@ gem 'rpush'
 gem 'will_paginate','3.1.0'
 gem 'bootstrap-will_paginate','1.0.0'
 gem 'bcrypt','~> 3.1.7'
-gem 'bootstrap-sass', '~> 3.3.6'
+
+
+gem 'bootstrap',     '~> 4.0.0.beta'
+gem 'material-sass', '~> 4.0.0.beta'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use Puma as the app server

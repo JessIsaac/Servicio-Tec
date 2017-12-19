@@ -1,59 +1,30 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Gobierno de Baja California",root_path,class: "nvabar-brand",id: "logo" %>
+<hr class ="p-color" style="height: 4px; margin:0">
+<div align="center" style="margin:10px">
+  <% if current_page?(root_path) %>
+    <%= image_tag("logo.jpeg") %>
+  <% else %>
+    <%= link_to(image_tag("logo.jpeg"),root_path) %>
+  <% end %>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to "Inicio",{controller:'articles',action:'index'}, class:"navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mx-auto">
+      <%= link_to "Acerca de" ,root_path,class:"nav-link nav-item" %>
+      <%= link_to "Programas",root_path,class:"nav-link nav-item" %>
+      <%= link_to  "Convenios",root_path, class:"nav-link nav-item" %>
+      <%= link_to "FOTRADIS",root_path,class:"nav-link nav-item" %>
+      <%= link_to "FISE",root_path,class:"nav-item nav-link" %>
+      <%= link_to  "Tramites",root_path,class:"nav-link nav-item" %>
+      <%= link_to  "Transparencia",root_path,class:"nav-link nav-item" %>
+      <%= link_to "Contacto",root_path,class:"nav-link nav-item" %>
+      <form class="form-inline ">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn my-2 my-sm-0" type="submit">Buscar</button>
+      </form>      
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav">
-
-        <li class="dropdown">
-          <a href="#" id='forecolor' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Todas las categorias", categories_path %></li>
-            <% Category.all.each do |category| %>
-            <li><%= link_to "#{category.name}", category_path(category) %></li>
-            <% end %>
-            <% if  !logged_in? |(logged_in? and current_user.admin?) %>
-              <li><%= link_to "Crear nueva categoria", new_category_path %></li>
-            <% end %>
-          </ul>
-        </li>
-        <% if logged_in? %>
-        <li class="dropdown">
-          <a href="#" id='forecolor' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "New Article", new_article_path %></li>
-            <% if  !logged_in? |(logged_in? and current_user.admin?) %>
-              <li><%= link_to "New Category", new_category_path %></li>
-            <% end %>
-          </ul>
-        </li>
-        <% end %>
-      </ul>
-      <div class='navbar navbar-nav navbar-right'>
-        <div style="margin-top:13px;">
-          <% if logged_in? %>
-          <a href='#' class='dropdown-toggle' data-toggle= 'dropdown'
-          role='button' arial-haspopup='true' aria-expanded='false' id='signup'>
-          <%= current_user.username %></a>
-          <ul class='dropdown-menu' id='mainColor'>
-            <li><%= link_to current_user.username,user_path(current_user),id:'signup'%></li>
-            <li><%= link_to 'Cerrar sesión',logout_path,id:'signup',method: :delete %></li>
-          </ul>
-          <% else %>
-            <%= link_to 'Iniciar sesión',login_path,id:'signup'%>
-          <% end %>
-        </div>
-      </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  </div>
 </nav>
