@@ -1,12 +1,78 @@
-<div class="container">
-  <footer class="footer">
-    <small>
-      Copyright &copy; <a href="https://github.com/FrankGC/panchoblog"> Pancho's Blog </a>
-    </small>
-    <nav>
-      <ul>
-        <li><%= link_to "About", pages_about_path %> by Francisco </li> 
-      </ul>
-    </nav>
-  </footer>
+<footer class="footer-distributed">
+
+<div class="footer-left">
+
+  
+  <div class="wrapper col-md-6">
+    <div>
+      <%= link_to (image_tag("logo_gris.png")), root_path, class: "footer-img", id:"logo" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+  <ul class="footer-links footer-ul">
+    <li><a class="footer-li" href="#">Acerca De</a></li>
+    <li><a class="footer-li" href="#">Programas</a></li>
+    <li><a class="footer-li" href="#">Convenios</a></li>
+    <li><a class="footer-li" href="#">Transparencia</a></li>
+    <li><a class="footer-li" href="#">Contacto</a></li>
+    <li><a class="footer-li" href="#">Trámites Y Servicios</a></li>
+  </ul>
+  </div>
+  <div class="footer-title">
+  <p class="footer-company-name">Secretaria de Desarrollo Social de Baja California</p>
+  </div>
 </div>
+
+<div class="footer-center">
+
+  <div>
+    <i class="fa fa-map-marker"></i>
+    <p><span>Edificio del Poder Ejecutivo 2do. Piso</span>Calzada Independencia No. 994 Centro Cívico, Mexicali B.C.</p>
+  </div>
+
+  <div>
+    <i class="fa fa-phone"></i>
+    <p>(686) 558-1130</p>
+  </div>
+
+  <div>
+    <i class="fa fa-envelope"></i>
+    <p><a href="mailto:correosoporte@sedesoe.gob.mx">correosoporte@sedesoe.gob.mx</a></p>
+  </div>
+
+</div>
+
+<div class="footer-right">
+
+  
+    <h4 style="font-weight:700">Programas Estatales</h4>
+  <div>
+    <ul class="footer-links footer-ul">
+      <li><a class="footer-li" href="#">Dirección de Asistencia Social</a></li>
+      <li><a class="footer-li" href="#">Direccion de Economia Social</a></li>
+      <li><a class="footer-li" href="#">Direccion de Vinculación Social</a></li>
+      <li><a class="footer-li" href="#">Direccion de Promoción Social</a></li>
+      <li><a class="footer-li" href="#">Direccion de Inversión Pública</a></li>
+    </ul>
+  </div>
+
+  <p class="footer-company-about">
+    <h4 style="font-weight:700">Ligas de Interés</h4>
+  </p>
+  <div>
+    <ul class="footer-links footer-ul">
+      <li><a class="footer-li" href="#">SEDESOL</a></li>
+      <li><a class="footer-li" href="#">DIF Baja California</a></li>
+      <li><a class="footer-li" href="#">DIF Nacional</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-icons">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-google"></i></a>
+  </div>
+
+</div>
+
+</footer>

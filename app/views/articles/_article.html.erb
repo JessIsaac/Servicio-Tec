@@ -1,15 +1,16 @@
-<div class="container">
-<ul class="nav nav-pills nav-fill">
-  <% obj.each do |article| %>
-    <div class="nav-item">
-      <div class="card" style="width: 20rem; margin:15px">
-        <%= link_to (image_tag(article.imagen,class: "card-img-top img-thumbnail")),article_path(article) %>
-        <div class="card-body">
-          <%= link_to article.title, article_path(article),:class => "card-title" %>
-          <%= truncate(article.description,length:300,class:"card-text") %>
+    <h3 class="heading-large titulos">Noticias</h3>
+    <ul class="nav nav-pills nav-fill">
+      <% obj.each do |article| %>
+        <div class="nav-item">
+          <div class="col-lg-4 card" style="margin-bottom:15px">
+            <%= link_to (image_tag(article.imagen,class: "card-img-top img-thumbnail")),article_path(article) %>
+            <div class="card-body">
+              <h4 style="text-align: center;"><%= link_to article.title, article_path(article),:class => "card-title" %></h4>
+              <p style="text-align: justify;max-height:120px; min-height: 120px"><%= truncate(article.description,length:200,class:"card-text") %></p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  <% end %>
-</ul>
-</div>
+      <% end %>
+    </ul>
+
+  

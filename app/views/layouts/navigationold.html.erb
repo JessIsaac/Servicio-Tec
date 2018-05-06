@@ -1,0 +1,30 @@
+<hr class ="p-color" style="height: 4px; margin:0">
+<div align="center" style="margin:10px">
+  <% if current_page?(root_path) %>
+    <%= image_tag("/logo.jpeg") %>
+  <% else %>
+    <%= link_to(image_tag("/logo.jpeg"),root_path) %>
+  <% end %>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to "Inicio",{controller:'articles',action:'index'}, class:"navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mx-auto">
+      <%= link_to "Acerca de" ,root_path,class:"nav-link nav-item" %>
+      <%= link_to "Programas",root_path,class:"nav-link nav-item" %>
+      <%= link_to  "Convenios",root_path, class:"nav-link nav-item" %>
+      <%= link_to "FOTRADIS",root_path,class:"nav-link nav-item" %>
+      <%= link_to "FISE",root_path,class:"nav-item nav-link" %>
+      <%= link_to  "Tramites",root_path,class:"nav-link nav-item" %>
+      <%= link_to  "Transparencia",root_path,class:"nav-link nav-item" %>
+      <%= link_to "Contacto",root_path,class:"nav-link nav-item" %>
+      <form class="form-inline ">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>

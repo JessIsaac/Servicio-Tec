@@ -1,30 +1,83 @@
+
 <hr class ="p-color" style="height: 4px; margin:0">
-<div align="center" style="margin:10px">
-  <% if current_page?(root_path) %>
-    <%= image_tag("/logo.jpeg") %>
-  <% else %>
-    <%= link_to(image_tag("/logo.jpeg"),root_path) %>
-  <% end %>
-</div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to "Inicio",{controller:'articles',action:'index'}, class:"navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav mx-auto">
-      <%= link_to "Acerca de" ,root_path,class:"nav-link nav-item" %>
-      <%= link_to "Programas",root_path,class:"nav-link nav-item" %>
-      <%= link_to  "Convenios",root_path, class:"nav-link nav-item" %>
-      <%= link_to "FOTRADIS",root_path,class:"nav-link nav-item" %>
-      <%= link_to "FISE",root_path,class:"nav-item nav-link" %>
-      <%= link_to  "Tramites",root_path,class:"nav-link nav-item" %>
-      <%= link_to  "Transparencia",root_path,class:"nav-link nav-item" %>
-      <%= link_to "Contacto",root_path,class:"nav-link nav-item" %>
-      <form class="form-inline ">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn my-2 my-sm-0" type="submit">Buscar</button>
-      </form>
+<nav class="navbar navbar-default" style="margin-bottom: 0px !important;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" id="mobile-icon" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <%= link_to (image_tag("logonav.jpeg")), root_path, class: "navbar-brand", id:"logo" %>
     </div>
-  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse barra" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acerca de <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Estructura", root_path %></li>
+              <li><%= link_to "Misión, Visión, Objetivos", root_path %></li>
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Directorio</a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Secretaria", root_path %></li>
+                  <li><%= link_to "Direcciones", root_path %></li>
+                  <li><%= link_to "Delegaciones", root_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to "Manual de Organizacion", root_path %></li>
+              <li><%= link_to "Lineamientros y Reglas de Operacion", root_path %></li>
+              <li><%= link_to "Avance Prográmatico y Presupuestal", root_path %></li>
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Padrones de Beneficiarios</a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "2016", root_path %></li>
+                  <li><%= link_to "2017", root_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to "Reglamento Interno de la SEDESOE", root_path %></li>
+              <li><%= link_to "Codigo de Ética", root_path %></li>
+
+            </ul>
+          </li>
+        <li><%= link_to "Programas", root_path%></li>
+        <li><%= link_to "Convenios", root_path%></li>
+        <li><%= link_to "FISE", root_path%></li>
+        <li><%= link_to "FOTRADIS", root_path%></li>
+        <li><%= link_to "Tramites y Servicios", root_path%></li>
+        <li><%= link_to "Transparencia", root_path%></li>
+        <li><%= link_to "Contacto", root_path%></li>
+        <% if logged_in?%>  
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Articles Actions <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "New Article", new_article_path %></li>
+              </ul>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <% user = User.find(session[:user_id])if (session[:user_id])%>
+            <li class="dropdown">
+              <a href= "" id="USERNAME" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.username %><%=" Admin" if current_user.admin? %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", user_path(current_user) %></li>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user)%></li>
+                <li role = "separator" class= "divider"></li>
+                <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+              </ul>
+          </li>
+          
+        <% else %>
+          <li><%= link_to "Log In", login_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

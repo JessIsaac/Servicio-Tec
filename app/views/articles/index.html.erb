@@ -1,23 +1,23 @@
-<div id="carouselExampleIndicators"  class="carousel slide" data-ride="carousel">
+<div id="CarouselArticles"  class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    <li data-target="#CarouselArticles" data-slide-to="0" class="active"></li>
+    <li data-target="#CarouselArticles" data-slide-to="1"></li>
+    <li data-target="#CarouselArticles" data-slide-to="2"></li>
+    <li data-target="#CarouselArticles" data-slide-to="3"></li>
+    <li data-target="#CarouselArticles" data-slide-to="4"></li>
   </ol>
   <div class="carousel-inner">
     <% @articles.take(5).each_with_index do |art,i| %>
       <% if (i<1)  %>
-      <div class="carousel-item active">
-        <%= link_to (image_tag(art.imagen,class:'d-block w-100')),article_path(art),class: 'd-block w-100' %>
+      <div class="item active">
+        <%= link_to (image_tag(art.imagen,class:'imagen')),article_path(art),class: 'imagen' %>
         <div class="carousel-caption d-none d-md-block">
           <%= art.title %>
         </div>
       </div>
       <% else %>
-      <div class="carousel-item">
-        <%= link_to (image_tag(art.imagen,class:'d-block w-100')),article_path(art),class: 'd-block w-100' %>
+      <div class="item" >
+        <%= link_to (image_tag(art.imagen,class:'imagen')),article_path(art),class: 'imagen' %>
           <div class="carousel-caption d-none d-md-block">
             <%= art.title %>
           </div>
@@ -26,18 +26,30 @@
     <% end %>
   </div>
 
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <a class="left carousel-control" href="#CarouselArticles" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <a class="right carousel-control" href="#CarouselArticles" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
+<hr class="p-color" style="height: 4px; margin:0">
 
-
-<%= render 'article',obj: @articles %>
-<div align='center'>
-  <%= will_paginate %>
-</div>
+<section class="section-articles" style="padding-top:15px">
+      <div class= "container-fluid" style="margin-left:65px; margin-right:65px ">  
+        <div class= "row">
+          <div class="col-md-8" > 
+            <%= render 'article',obj: @articles %>
+             <div align="center">
+                <%= will_paginate %>
+             </div>
+          </div>
+          <%= render 'sidebar' %>
+        </div>
+      </div>
+</section>
+<section class="section-footer">
+      <%= render 'layouts/footer' %>
+</section>
