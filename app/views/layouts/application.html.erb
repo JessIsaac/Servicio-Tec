@@ -26,8 +26,12 @@
 
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
+    <div class="main">
     <%= yield %>
-
+    </div>
+    <section class="section-footer">
+    <%= render 'layouts/footer' %>
+    </section>
     <!-- <%= debug(params) if Rails.env.development? %> -->
   </body>
 </html>
